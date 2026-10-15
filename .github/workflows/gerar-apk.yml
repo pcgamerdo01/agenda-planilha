@@ -27,9 +27,12 @@ jobs:
           gradle-version: '8.11.1'
           cache-disabled: true
 
+      - name: Preparar ferramentas Android
+        uses: android-actions/setup-android@v3
+
       - name: Instalar SDK Android
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
-
+        
       - name: Compilar aplicativo
         working-directory: projeto/AgendaPlanilha
         run: gradle --no-daemon assembleDebug
